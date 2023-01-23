@@ -11,8 +11,8 @@ Heap - Max & Min<br/>
 Disjoint Set<br/>
 Tree<br/>
 Binary Search Tree<br/>
-Graph<br/>
-<b<br/>r/>
+Graph - (Array Implimentation -Directed/Undirected)<br/>
+
 Algorithm :<br/>
 Sorting - Bubble, Selection, Insertion,Counting,Merge, Quick<br/>
 Search - Linear, Binary<br/>
