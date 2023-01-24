@@ -3,7 +3,7 @@
 using namespace std;
 
 // Binary Search : TC - O(log n), SC- O(1)
-// This algorhythm is applicable if the given array is been sorted
+// This algorhythm is applicable if the given array is being sorted
 
 int binarySearch(int array[], int arraySize, int searchItem)
 {
