@@ -37,6 +37,28 @@ void bfs(Tree* root){
     }
 }
 
+bool search(Tree* root, int key){
+    if(root==NULL) return false;
+    if(root->value==key) return true;
+    return search(root->left,key) || search(root->right,key);
+}
+
+int minValue(Tree* root){
+    if(root==NULL) return INT_MAX;
+    return min(root->value,min(minValue(root->left),minValue(root->right)));
+}
+
+int sum(Tree* root){
+    if(root==NULL) return 0;
+    return root->value + sum(root->left) + sum(root->right);
+}
+
+int evenSum(Tree* root){
+    if(root==NULL) return 0;
+    if(root->value%2==0) return root->value + evenSum(root->left) + evenSum(root->right);
+    else return evenSum(root->left) + evenSum(root->right);    
+}
+
 
 int main(){
 
@@ -55,6 +77,14 @@ int main(){
 
     bfs(root);
     cout<<endl;
+    
+    search(root,10)? cout<<"Found"<<endl : cout<<"Not found"<<endl;
+
+    cout<<minValue(root)<<endl;
+
+    cout<<sum(root)<<endl;
+
+    cout<<evenSum(root)<<endl;
 
     return 0;
 }
