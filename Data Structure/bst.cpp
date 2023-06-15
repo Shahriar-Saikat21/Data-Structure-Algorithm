@@ -114,7 +114,7 @@ void maxElement(Tree* root){
     }
     cout<<temp->value;
 }
-
+// dfs in order (main)
 void inOder(Tree* root){
     if(root!=NULL){
         inOder(root->left);
@@ -122,7 +122,7 @@ void inOder(Tree* root){
         inOder(root->right);
     }
 }
-
+// Dfs pre order
 void dfs(Tree* root){
     if(root!=NULL){
         cout<<root->value<<" ";
@@ -144,6 +144,40 @@ void bfs(Tree* root){
         if(root->left!=NULL) q.push(root->left);
         if(root->right!=NULL) q.push(root->right);
     }
+}
+
+//Level Order Traversal
+int maxLevelSum(Tree* root) {
+    queue<Tree*>q;
+
+    int level = 1,ans = -1;
+
+    int maxSum = INT_MIN;
+
+    q.push(root);
+
+    while(!q.empty()){
+        int temp = 0;
+        int size = q.size();
+        for(int i = 0; i<size; i++){
+            Tree* n = q.front();
+            q.pop();
+            temp+= n->value;
+            if(n->left){
+                q.push(n->left);
+            }
+            if(n->right){
+                q.push(n->right);
+            }
+        }
+
+        if(temp>maxSum){
+            ans = level;
+            maxSum = temp;
+        }
+        level++;
+    }
+    return ans;
 }
 
 int main(){
